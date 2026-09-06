@@ -4,6 +4,8 @@ A uv-managed starting point for vision, LLM, tabular, multimodal, and scientific
 research. Small shared utilities, selectable dependencies, runnable CPU examples,
 and an explicit experiment record. No private data, model weights, or credentials.
 
+See [validation status](docs/validation.md) for tested environments and remaining checks.
+
 ## Start a project
 
 Use GitHub's **Use this template** button, or:
