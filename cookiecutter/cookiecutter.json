@@ -1,0 +1,11 @@
+{
+  "project_name": "My Research Study",
+  "project_slug": "my-research-study",
+  "package_name": "{{ cookiecutter.project_slug.replace('-', '_') }}",
+  "research_profile": ["tabular", "vision", "llm", "multimodal", "scientific", "other"],
+  "python_version": ["3.11", "3.12"],
+  "author_name": "",
+  "repository_visibility": ["private", "public"],
+  "include_notebooks": ["yes", "no"],
+  "include_tracking": ["no", "yes"]
+}

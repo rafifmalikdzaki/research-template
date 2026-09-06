@@ -24,6 +24,28 @@ dataset, evaluation design, or research conclusion.
 
 ## Make a separate repository for each study
 
+### Recommended: use the study generator
+
+The **Cookiecutter generator** asks for the study name, repository slug, Python
+version, research profile, visibility, notebooks, and tracking. It creates a clean
+project with your chosen names already applied to the package, configuration, and
+README. This is preferable when starting a new study.
+
+```bash
+uvx --from cookiecutter cookiecutter gh:rafifmalikdzaki/research-template --directory cookiecutter
+cd YOUR-REPOSITORY-SLUG
+git init -b main
+git add .
+git commit -m "chore: initialise research study"
+gh repo create YOUR-REPOSITORY-SLUG --private --source . --push
+```
+
+Cookiecutter prompts for each choice. Select the profile matching the study; the
+generated README gives the exact `uv sync --extra ...` command. If the project is
+public, select `public` at the GitHub command instead.
+
+### Simple alternative: GitHub's static template button
+
 In GitHub, open [this template](https://github.com/rafifmalikdzaki/research-template),
 click **Use this template**, create a private repository, then clone it. Or run:
 
