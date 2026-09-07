@@ -8,6 +8,8 @@ Research profile: `{{ cookiecutter.research_profile }}`. Repository visibility:
 ```bash
 uv python install {{ cookiecutter.python_version }}
 uv sync
+uv run research doctor
+uv run pytest -q
 ```
 
 {% if cookiecutter.research_profile == "vision" %}

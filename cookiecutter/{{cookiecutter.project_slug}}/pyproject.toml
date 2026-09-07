@@ -20,6 +20,9 @@ scientific = ["scipy>=1.14,<2", "sympy>=1.13,<2", "xarray>=2024.10", "h5py>=3.12
 tracking = ["mlflow>=2.20,<4", "wandb>=0.19,<1"]
 notebooks = ["jupyterlab>=4,<5", "ipykernel>=6,<8", "matplotlib>=3.9,<4", "seaborn>=0.13,<1"]
 
+[project.scripts]
+research = "{{ cookiecutter.package_name }}.cli:main"
+
 [dependency-groups]
 dev = ["pytest>=8,<10", "ruff>=0.11,<1"]
 
