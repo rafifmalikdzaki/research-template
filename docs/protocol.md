@@ -4,7 +4,7 @@
 - Task, target, intended use, and limits:
 - Dataset source/version/hash, license/consent, inclusion/exclusion criteria:
 - Evidence type: measured / inferred / proxy / synthetic / diagnostic:
-- Unit of independence: patient / subject / site / batch / trajectory / document:
+- Unit of independence: entity / subject / site / batch / trajectory / document:
 - Split policy and immutable split-manifest location:
 - Train/validation/test sizes, groups, time/site boundaries:
 - Primary metric, aggregation unit, uncertainty method, and acceptance criterion:
@@ -13,7 +13,7 @@
 
 Fit preprocessing, feature selection, imputation, resampling, and tuning on
 training folds only. Use validation for selection and reserve test data for final
-evaluation. Keep repeated patients/images, near-duplicate documents, overlapping
+evaluation. Keep repeated entities/images, near-duplicate documents, overlapping
 windows, and related trajectories within one split. For temporal claims, use a
 temporal split. Bootstrap at the independent unit, not correlated observations.
 
@@ -21,7 +21,7 @@ temporal split. Bootstrap at the independent unit, not correlated observations.
 
 | Domain | Define explicitly |
 | --- | --- |
-| Vision | Sample/source grouping, image normalization, augmentation, external-site validation |
+| Vision | Sample/source grouping, image normalization, augmentation, held-out-source validation |
 | LLM | Dataset and model revisions, prompt/chat template, tokenizer, contamination checks, generation settings, token budget |
 | Tabular | Target-derived columns, training-only preprocessing, group/time split, class imbalance, feature availability at inference |
 | Multimodal | Join key, aligned subject splits, missing modalities, modality ablations, leakage through metadata |

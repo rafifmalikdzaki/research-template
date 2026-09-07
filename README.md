@@ -1,8 +1,7 @@
 # Research template
 
-A template for **one research study per GitHub repository**. Make one copy for
-each question: for example, one repository for image classification and
-another for an language-model evaluation. Do not mix unrelated projects together.
+A template for **one research study per GitHub repository**. Make one copy for each
+question. Do not mix unrelated projects together.
 
 ## Start here: what you do
 
@@ -59,11 +58,11 @@ Examples of useful repository names:
 
 | Research question | Repository name | Dependency profile |
 | --- | --- | --- |
-| Classify retinal images | `image-classification-study` | vision |
-| Evaluate Indonesian LLMs | `language-model-evaluation` | llm |
-| Predict outcome from a CSV | `tabular-prediction-study` | tabular |
-| Image plus clinical variables | `multimodal-fusion-study` | multimodal + tabular |
-| Model a physical process | `scientific-modeling-study` | scientific |
+| Classify images | `image-classification-study` | vision |
+| Evaluate language models | `language-model-evaluation` | llm |
+| Predict an outcome from a CSV | `tabular-prediction-study` | tabular |
+| Combine images and structured features | `multimodal-fusion-study` | multimodal + tabular |
+| Model a simulated system | `scientific-modeling-study` | scientific |
 
 ## The five steps after creating a repository
 
@@ -76,8 +75,8 @@ Examples of useful repository names:
 5. Add every verified result to [reports/README.md](reports/README.md)'s results
    table and update [docs/HANDOVER.md](docs/HANDOVER.md) before pausing work.
 
-Keep all related samples in the same split: images of one patient, records from
-one machine run, windows from one time series, or prompts from one document. This
+Keep all related samples in the same split: records from one entity, one machine
+run, one time series, or one source document. This
 prevents leakage that can make scores look better than they really are.
 
 See [validation status](docs/validation.md) for tested environments and remaining checks.
@@ -138,7 +137,7 @@ configs/
 ├── baseline.yaml
 ├── resnet18.yaml
 ├── catboost.yaml
-└── image_clinical_fusion.yaml
+└── multimodal_fusion.yaml
 ```
 
 Every real run should retain its config, split membership, per-example predictions,
@@ -149,8 +148,8 @@ The provided synthetic demo creates this kind of run bundle in `outputs/`.
 
 | Profile | What must be defined before training |
 | --- | --- |
-| Tabular | Which columns are available at prediction time; patient/group/time split; preprocessing fitted on training only. |
-| Vision | Patient/slide/eye grouping; image normalization; training-only augmentation; held-out site or time period where possible. |
+| Tabular | Which columns are available at prediction time; group/time split; preprocessing fitted on training only. |
+| Vision | Sample grouping; image normalization; training-only augmentation; held-out source or time period where possible. |
 | LLM | Dataset and model revision; prompt/chat template; generation settings; contamination/overlap check; equal evaluation budget. |
 | Multimodal | Safe join key; one shared group split; missing-modality policy; single-modality baselines and fusion ablation. |
 | Scientific | Units; boundary conditions; measured vs simulated data; trajectory/condition split; physical and numerical baseline. |
@@ -226,8 +225,6 @@ Python versions, packaging, reproducibility, and the modality smoke examples.
 
 ## Design origins
 
-The structure draws on the local retinal multimodal, histopathology, language,
-spray-dryer tabular, and particle-surrogate projects: `src/configs/tests/docs`,
-separate data and outputs, optional heavy dependencies, grouped evaluation,
-artifact provenance, and checkpoint lifecycle documentation. It contains new
-generic scaffolding, not copied study code or experimental results.
+The structure is generic: `src/configs/tests/docs`, separate data and outputs,
+optional heavy dependencies, grouped evaluation, artifact provenance, and
+checkpoint lifecycle documentation. It contains no study-specific code or results.
